@@ -207,15 +207,15 @@ It is **not**:
 - **Repository owner:** Cognous
 - **Cognous:** https://cogno.us
 
-### License status
+### License
 
-At the starting revision for this clarification workstream, the default branch contained **no standalone LICENSE file or CC0 legal instrument**. The prior README stated **“Public domain / CC0-style intent.”**
+Cognous-owned material is licensed under the Apache License, Version 2.0.
+See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
-That statement records intent, but it is not equivalent to a verifiable license artifact. This workstream does **not** adopt, replace, or alter any license. The historical source files are preserved unchanged.
-
-Until an authoritative license artifact is present, users should not infer a specific legal dedication solely from the phrase “CC0-style intent.” Resolving that discrepancy remains a maintainer/legal decision outside this bounded documentation change.
-
-Attribution to [Cognous](https://cogno.us) is appreciated.
+This explicit maintainer-selected license replaces the earlier unresolved
+“Public domain / CC0-style intent” description for current distribution.
+Historical PDFs are unchanged; existing third-party rights and any prior
+license grants are not revoked. Attribution: [Cognous](https://cogno.us).
 
 ---
 
