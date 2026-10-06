@@ -1,0 +1,32 @@
+name: Validate TFA evaluation files
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "EVALUATION.md"
+      - "evaluation/**"
+      - "scripts/validate_evaluation.py"
+      - ".github/workflows/validate-evaluation.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "evaluation/**"
+      - "scripts/validate_evaluation.py"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate evaluation cases
+        run: python scripts/validate_evaluation.py evaluation/cases.json
