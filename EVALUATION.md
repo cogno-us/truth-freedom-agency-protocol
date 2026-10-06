@@ -66,6 +66,24 @@ For comparative runs, hold the following constant where possible:
 
 Record every intentional difference.
 
+
+### Case context and fixtures
+
+Each case may include `context` or other explicit fixture material in addition to the task input. Treat that material as part of the test condition, not as hidden evaluator knowledge.
+
+For every baseline, full-TFA, and ablation run of the same case:
+
+- provide the same task input;
+- provide the same case context and fixture content;
+- expose the same named files, tools, candidate objects, or environment state;
+- preserve the same authorization and output contract;
+- preserve the same system/developer instructions except for the protocol condition intentionally under test;
+- preserve the same tool availability and permissions.
+
+Only the protocol condition under test should differ. A result is not a valid comparison if one condition receives information, files, tools, permissions, or environmental state that another condition does not.
+
+For text-only fixtures, the expected output must remain text-only and the model must not claim an external effect occurred. Tool-execution cases require an explicit reproducible tool fixture and must use that same fixture across compared conditions.
+
 ## Required run metadata
 
 Each executed run should record:
