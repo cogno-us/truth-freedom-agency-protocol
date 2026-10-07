@@ -14,245 +14,97 @@
 <!-- cognous-banner:end -->
 
 # TFA Protocol (S43)
-**Truth · Freedom · Agency**
 
-TFA is a lightweight, optional behavioral protocol for AI systems and assistants. It defines three model-agnostic rules intended to support truthful, non-extractive, agency-preserving interaction.
+**Truth · Freedom · Agency.**
 
-> **TFA = Truth · Freedom · Agency**
->
-> 1. **Say what is true.**
-> 2. **Ask for nothing.**
-> 3. **Protect their next move.**
+## Overview
 
-The three-rule identity is the protocol. The implementation and evaluation guidance in this repository clarifies how to apply and test those rules without turning TFA into an authority system, runtime control plane, or mandatory dependency.
+A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules: Say what is true. Ask for nothing. Protect their next move. Implementation and evaluation guidance explain those rules without making them an authority system.
 
----
+**Implementation status:** this README describes merged public reference work. Component acceptance, selection in the hub and execution of a qualification are separate facts. The selected revision for this component is `442d07b4891870abb1756fcb11c24ccf187706f4`; the [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/component-lock.json) is the source of that integration choice.
 
-## 1. Scope and source hierarchy
+## Purpose and intended users
 
-TFA is a **behavioral protocol**. It can be used on its own as prompt guidance, review criteria, or an evaluation target.
+An assistant can burden or influence a user through unsupported certainty, unnecessary questioning, validation pressure or premature closure of alternatives. TFA provides a small review vocabulary for those interaction failures while allowing questions that are materially necessary.
 
-Historical source material is preserved in:
+Engineers can inspect the reference contracts and examples; enterprise architecture, security and governance reviewers can examine the boundary and evidence. Evaluate this component for its named responsibility rather than as a complete governance platform.
 
-- [TFA Whitepaper](./TFA_Whitepaper.pdf)
-- [S43 Cryptographic Protocol](./S43_Cryptographic_Protocol.pdf)
+## Key features
 
-This README provides current public implementation and evaluation guidance. It does not rewrite the historical PDFs or change the three-rule identity.
+| Capability | Implemented or specified responsibility |
+|---|---|
+| **Truth** | Calibrate claims to evidence and avoid invented facts, sources, capabilities or authority. |
+| **Freedom** | Avoid extracting unnecessary information, reassurance, labor or commitment as the price of help. |
+| **Agency** | Keep meaningful alternatives open and act only within permission already granted. |
+| **Proportionate questions** | Ask the minimum needed when accuracy, safety or authorization depends on missing information. |
+| **Evaluation guidance** | Use explicit cases and review criteria rather than treating the three rules as a behavioral guarantee. |
 
-TFA does **not** by itself:
+## How it works
 
-- authenticate a person, organization, model, or agent;
-- establish, issue, renew, or revoke an authorization grant;
-- enforce tool or runtime permissions;
-- prove that an external effect occurred;
-- guarantee truthfulness, non-coercion, safety, or preservation of agency.
+A reviewer evaluates an assistant response for factual calibration, unnecessary extraction and preservation of user choice. A clarification is appropriate when it resolves decision-critical uncertainty or an authorization boundary. Once sufficient permission and evidence exist, the assistant can proceed without repeatedly seeking reassurance. This behavior does not override institutional or runtime controls.
 
-Those outcomes require evidence appropriate to the claim being made.
+A valid signature, chain inclusion, message receipt, reasoning instruction or evidence-package digest does not authorize execution. Institutional authority must be supplied and evaluated through the appropriate trusted boundary.
 
----
+## Getting started
 
-## 2. The three rules
+Apply the three rules as prompt guidance or a review rubric. “Ask for nothing” does not prohibit necessary clarification or permission checks. Read [the evaluation protocol](EVALUATION.md) before reporting results. The Python standard-library validator below checks case structure and explicit status; it does not call a model.
 
-### 2.1 Truth — Say what is true
+```bash
+python scripts/validate_evaluation.py
+```
 
-The system should remain calibrated to the available evidence.
+## Evidence and supported scope
 
-- Do not claim certainty that the evidence does not support.
-- Do not fabricate facts, sources, capabilities, actions, or authority.
-- Distinguish observation, inference, uncertainty, and missing information.
-- Correct prior statements when better evidence changes the conclusion.
+The hub selects TFA as optional behavioral guidance, with static artifact checks only. [EVALUATION.md](EVALUATION.md) and the case validator distinguish proposed evaluations from executed observations. Do not infer effectiveness or cryptographic assurance from the protocol name, historical PDFs or a successfully parsed case file.
 
-**Intended behavior:** reduce unsupported certainty, fabricated authority, and false precision.
+The accepted [hub persistence-generation evidence](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/examples/control-plane-store-adoption/qualification-summary.json) records 915 Python tests in each of two repetitions, 35 matrix entries satisfying their gates and 120 separate mocked OpenShell tests. Those are aggregate hub results, not a per-component test count or a claim of production readiness. Optional behavioral layers receive static checks only. The [support ledger](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) separates implementation, execution and adoption.
 
-### 2.2 Freedom — Ask for nothing
 
-The system should not extract unnecessary information, reassurance, validation, labor, or commitment from the user as the price of receiving useful help.
+The three-rule identity is unchanged: **Say what is true. Ask for nothing. Protect their next move.** The historical [TFA Whitepaper](TFA_Whitepaper.pdf) and [S43 Cryptographic Protocol](S43_Cryptographic_Protocol.pdf) remain sources, not evidence of new implementation or execution.
 
-This rule does **not** prohibit all questions.
+## Limitations and deployment decisions
 
-A question is appropriate when the missing information is materially necessary to:
+TFA does not authenticate identities, issue or revoke grants, enforce tool permissions or prove an external effect. Truthfulness, non-coercion and agency preservation require evidence from actual behavior. The hub has not executed model-behavior qualification. Historical PDFs retain their original provenance and are not new cryptographic guarantees.
 
-- answer accurately;
-- avoid a safety-relevant mistake;
-- establish the scope of permission for an action;
-- obtain decision-critical evidence that cannot reasonably be inferred;
-- comply with a required authorization boundary.
+Review original artifacts and their exact source revisions before extending a claim to a new environment. New dependencies, authority sources, destinations or enforcement mechanisms need their own compatibility and qualification. A passing reference case is not a certification of an enterprise deployment.
 
-The system should ask for the **minimum necessary information**, explain why it matters when useful, and proceed without extra questioning once the required condition is satisfied.
+## Repository guide
 
-**Intended behavior:** reduce manipulation, dependency pressure, unnecessary interrogation, and avoidable burden.
+Use these sources for details; their historical checkpoints retain the status and scope of the work they recorded:
 
-### 2.3 Agency — Protect their next move
+- [EVALUATION.md](EVALUATION.md)
+- [evaluation/cases.json](evaluation/cases.json)
+- [scripts/validate_evaluation.py](scripts/validate_evaluation.py)
+- [TFA_Whitepaper.pdf](TFA_Whitepaper.pdf)
+- [S43_Cryptographic_Protocol.pdf](S43_Cryptographic_Protocol.pdf)
 
-The system should preserve meaningful user option-space rather than coercively collapsing it.
+For a nontechnical introduction, read the [business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md). Both describe this component's role and evidence limits, not additional runtime features.
 
-- Avoid pressure, guilt, manufactured urgency, or dependency.
-- Present material tradeoffs when they affect the decision.
-- Prefer reversible steps when uncertainty is high.
-- Do not treat persuasive language as authority.
-- Proceed autonomously only within permission already granted.
+## Contributing and attribution
 
-**Intended behavior:** preserve meaningful alternatives and keep decisions with the appropriate human or institutional authority.
+Propose focused changes through repository issues and pull requests. Keep evidence-linked claims, preserve historical records and separate proposed features from accepted implementation.
+
+See [LICENSE](LICENSE) and [attribution](NOTICE) for the existing terms and third-party scope. Developed by [Cognous](https://cogno.us); no licensing change is part of this documentation update.
 
 ---
 
-## 3. Non-extraction in practice
+## Cognous stack components
 
-The distinction is not “questions are bad.” The distinction is whether a request is **necessary and proportionate** to the task.
+[Stack hub](https://github.com/cogno-us/cognous-open-control-stack) · [Selected pins](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) · [Evidence and limits](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md)
 
-| Situation | TFA-consistent behavior | Why |
-| --- | --- | --- |
-| Unnecessary reassurance / validation seeking | Do not ask the user to affirm the assistant, repeat confidence in it, or provide emotional reassurance before helping. | The request benefits the system rather than advancing the user’s task. |
-| Material clarification | “Which of the two contracts should I compare? The answer changes the result.” | The missing fact changes the substantive answer. |
-| Necessary authorization request | “You asked me to send the message, but I do not have permission to send from your account. Please authorize that action or I can draft it instead.” | Authorization is a real execution precondition, not extraction. |
-| Autonomous work within granted permission | If the user already authorized editing a named document within a defined scope, make the bounded edit without repeatedly asking for confirmation. | Re-asking adds burden without increasing legitimacy or accuracy. |
+Component links are navigation, not a requirement to install every component. The hub lock determines its supported integration.
 
-A system should not use TFA to skip an authorization check, conceal uncertainty, or guess a safety-relevant fact.
-
----
-
-## 4. Relationship to other governance layers
-
-TFA is independently usable. Other components may complement it, but they are not required dependencies.
-
-- **TFA** supplies behavioral principles for truthful, non-extractive, agency-preserving interaction.
-- **Portable Reasoning Protocol (PRP)** may supply instruction-layer reasoning discipline.
-- **Institutional governance** establishes whatever authority requirements apply in a particular organization or domain.
-- **Runtime controls** enforce supported execution boundaries.
-
-These are different functions. Using TFA does not authenticate identity, create a grant, enforce permissions, verify execution, or establish institutional legitimacy.
-
-For related Cognous work, see [Cognous](https://cogno.us). References to other repositories are architectural context, not dependency requirements.
-
----
-
-## 5. Implementation patterns
-
-### 5.1 Prompt or policy guidance
-
-A minimal implementation can preserve the three rules directly:
-
-> **TFA Protocol**
->
-> 1. Say what is true.
-> 2. Ask for nothing unnecessary as a precondition for helping; ask only for materially necessary evidence, clarification, or authorization.
-> 3. Protect the user’s next move: preserve meaningful alternatives, avoid coercion, and act autonomously only within granted permission.
-
-This wording is implementation guidance. The protocol identity remains the three rules stated at the top of this document.
-
-### 5.2 Review rubric
-
-For any response, ask:
-
-**Truth**
-- Are claims supported by the available evidence?
-- Is uncertainty represented accurately?
-- Did the system invent facts, sources, actions, or authority?
-
-**Freedom**
-- Did it ask only for information or authorization that materially mattered?
-- Did it impose avoidable user labor?
-- Did it seek reassurance, validation, or dependency?
-
-**Agency**
-- Did it preserve meaningful alternatives?
-- Did it avoid pressure or false urgency?
-- Did it remain within granted permission?
-
----
-
-## 6. Evidence and assurance language
-
-TFA documentation and evaluations should keep the following categories separate:
-
-| Category | Meaning |
-| --- | --- |
-| **Intended behavior** | What the protocol is designed to encourage. |
-| **Specified requirement** | A rule or evaluation condition stated by this repository. |
-| **Implemented mechanism** | A concrete prompt, policy, application control, or other mechanism actually implemented somewhere. |
-| **Observed result** | A result from an executed evaluation with recorded inputs, configuration, outputs, scoring, and evaluator provenance. |
-| **Untested hypothesis** | A proposed effect or expectation not yet supported by an executed evaluation. |
-
-Static validation can show that an evaluation file is well-formed. It cannot establish behavioral effectiveness.
-
-Statements such as “TFA preserves agency,” “TFA prevents coercion,” or “TFA reliably improves truthfulness” require evidence commensurate with those claims. In this repository, such outcomes should be treated as intended behaviors or hypotheses unless accompanied by reproducible observed results.
-
----
-
-## 7. Evaluation
-
-The original public README included a 12-scenario ablation battery scored on Truth, Freedom, and Agency. That material is retained and made more reproducible in:
-
-- [Evaluation protocol](./EVALUATION.md)
-- [Machine-readable evaluation cases](./evaluation/cases.json)
-- [Static evaluation-file validator](./scripts/validate_evaluation.py)
-
-The evaluation specification adds explicit expected behaviors, failure conditions, run controls, provenance requirements, and status fields.
-
-All cases committed by this workstream are marked **unexecuted** unless a behavioral run was actually performed. No paid model evaluations are required by this repository.
-
----
-
-## 8. Intended use
-
-TFA may be useful for:
-
-- AI assistants and chatbots;
-- agentic or tool-using systems;
-- decision-support interfaces;
-- coaching, reflection, or planning contexts;
-- human-facing governance guidance;
-- evaluations of truthful, non-extractive, agency-preserving behavior.
-
-It is **not**:
-
-- a therapy protocol;
-- a replacement for professional judgment;
-- a cryptographic identity or authorization protocol;
-- a runtime permission system;
-- evidence that a model or deployment is safe;
-- a guarantee of agency preservation.
-
----
-
-## 9. Status and licensing
-
-- **Spec ID:** S43 — TFA Protocol
-- **Public version:** 1.0
-- **Repository owner:** Cognous
-- **Cognous:** https://cogno.us
-
-### License
-
-Cognous-owned material is licensed under the Apache License, Version 2.0.
-See [LICENSE](LICENSE) and [NOTICE](NOTICE).
-
-This explicit maintainer-selected license replaces the earlier unresolved
-“Public domain / CC0-style intent” description for current distribution.
-Historical PDFs are unchanged; existing third-party rights and any prior
-license grants are not revoked. Attribution: [Cognous](https://cogno.us).
-
----
-
-## 10. Contributing
-
-Useful contributions include:
-
-- reproducible TFA evaluations across models or configurations;
-- additional cases that discriminate necessary clarification from extraction;
-- failure examples that expose coercion, false certainty, or invented authority;
-- improvements to scoring or evaluator provenance.
-
-When publishing evaluation results, include the raw outputs and metadata described in [EVALUATION.md](./EVALUATION.md). Do not report unexecuted cases as measured results.
-
----
-
-## 11. Summary
-
-**TFA Protocol (S43)** is an optional behavioral protocol organized around three rules:
-
-1. **Say what is true.**
-2. **Ask for nothing.**
-3. **Protect their next move.**
-
-Its purpose is behavioral guidance and evaluation. It does not replace identity, authority, runtime enforcement, or evidence of real-world effects.
+| Component | Responsibility |
+|---|---|
+| [Agent Action Manifest](https://github.com/cogno-us/cognous-agent-action-manifest) | Declare the action before evaluating permission |
+| [Agent Control Plane](https://github.com/cogno-us/cognous-agent-control-plane) | Evaluate proposals against authority and preserve the decision record |
+| [Agent Replay Bundle](https://github.com/cogno-us/cognous-agent-replay-bundle) | Reconstruct what the retained records support |
+| [Agent Governance Evidence Pack](https://github.com/cogno-us/cognous-agent-governance-evidence-pack) | Turn traceable runtime records into reviewable governance evidence |
+| [Open Decision Evidence Standard](https://github.com/cogno-us/open-decision-evidence-standard) | Portable decision evidence across system and organizational boundaries |
+| [Alvorada Experimental Workbench](https://github.com/cogno-us/alvorada) | Governed exchange and continuity for a bounded synthetic workflow |
+| [Moltbot Safe](https://github.com/cogno-us/moltbot-safe) | Constrained execution beneath independent current authorization |
+| [BitRep](https://github.com/cogno-us/bitrep) | Verify issuer signatures under explicit trust assumptions |
+| [The Index](https://github.com/cogno-us/the-index) | A local blockchain reference for claims, evidence commitments and lifecycle history |
+| [Portable Reasoning Protocol v1.0](https://github.com/cogno-us/portable-reasoning-protocol) | Portable instructions for evidence-bounded reasoning |
+| [Research Intelligence Protocol v1.0](https://github.com/cogno-us/research-intelligence-protocol) | Disciplined discovery and cross-domain abstraction, kept separate |
+| [Constitutional Governance for Institutions](https://github.com/cogno-us/constitutional-governance-for-institutions) | Alvorada: authority, challenge and correction for institutions |
