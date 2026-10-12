@@ -45,6 +45,20 @@ A reviewer evaluates an assistant response for factual calibration, unnecessary 
 
 A valid signature, chain inclusion, message receipt, reasoning instruction or evidence-package digest does not authorize execution. Institutional authority must be supplied and evaluated through the appropriate trusted boundary.
 
+## Relationship to PRP and institutional governance
+
+TFA can be used independently. Its three rules remain the interaction-level target; adopting the wider stack is optional.
+
+| Component | Role | Boundary |
+| --- | --- | --- |
+| TFA | Review truthfulness, unnecessary extraction, and preservation of meaningful choice in an interaction. | Behavioral guidance does not guarantee model behavior or grant permission. |
+| [Portable Reasoning Protocol](https://github.com/cogno-us/portable-reasoning-protocol) | Add reasoning discipline, evidence distinctions, and proportionate scrutiny. | More reasoning or confidence does not establish authority. |
+| [Cognous Institutional Governance (Alvorada)](https://github.com/cogno-us/cognous-institutional-governance) | Describe institutional decision rights, challenge, and correction. | A published framework is not institutional adoption; operative authority must be independently established. |
+
+Necessary requests for authorization, decision-critical evidence, or safety-relevant facts are compatible with “Ask for nothing.” Ask only what materially affects the decision, explain why when useful, and proceed when sufficient evidence and permission already exist. The rule rejects manipulation and unnecessary burden; it does not waive an actual approval requirement.
+
+When evaluating TFA alongside PRP or other instructions, record their exact text and revisions. Overlapping truthfulness or agency instructions can remain active in an ablation, so removing a TFA sentence does not remove the underlying capability or obligation. See the [comparison procedure](EVALUATION.md#minimal-comparison-procedure).
+
 ## Getting started
 
 Apply the three rules as prompt guidance or a review rubric. “Ask for nothing” does not prohibit necessary clarification or permission checks. Read [the evaluation protocol](EVALUATION.md) before reporting results. The Python standard-library validator below checks case structure and explicit status; it does not call a model.
