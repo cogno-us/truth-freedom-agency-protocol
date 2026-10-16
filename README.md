@@ -23,7 +23,7 @@
 
 A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules: Say what is true. Ask for nothing. Protect their next move. Implementation and evaluation guidance explain those rules without making them an authority system.
 
-**Implementation status:** this README describes merged public reference work. Component acceptance, selection in the hub and execution of a qualification are separate facts. The selected revision for this component is `442d07b4891870abb1756fcb11c24ccf187706f4`; the [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/component-lock.json) is the source of that integration choice.
+**Implementation status:** public reference work. The [current component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) defines the selected integration; a component merge does not automatically change that selection or approve deployment.
 
 ## Purpose and intended users
 
@@ -69,14 +69,13 @@ Apply the three rules as prompt guidance or a review rubric. â€œAsk for nothingâ
 python scripts/validate_evaluation.py
 ```
 
-## Evidence and supported scope
+## Scope and compatibility
 
-The hub selects TFA as optional behavioral guidance, with static artifact checks only. [EVALUATION.md](EVALUATION.md) and the case validator distinguish proposed evaluations from executed observations. Do not infer effectiveness or cryptographic assurance from the protocol name, historical PDFs or a successfully parsed case file.
-
-The accepted [hub persistence-generation evidence](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/examples/control-plane-store-adoption/qualification-summary.json) records 915 Python tests in each of two repetitions, 35 matrix entries satisfying their gates and 120 separate mocked OpenShell tests. Those are aggregate hub results, not a per-component test count or a claim of production readiness. Optional behavioral layers receive static checks only. The [support ledger](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) separates implementation, execution and adoption.
-
+TFA is optional behavioral guidance; static artifact validity does not establish behavioral efficacy. [EVALUATION.md](EVALUATION.md) and the case validator distinguish proposed evaluations from executed observations. Do not infer effectiveness or cryptographic assurance from the protocol name, historical PDFs or a successfully parsed case file.
 
 The three-rule identity is unchanged: **Say what is true. Ask for nothing. Protect their next move.** The historical [TFA Whitepaper](TFA_Whitepaper.pdf) and [S43 Cryptographic Protocol](S43_Cryptographic_Protocol.pdf) remain sources, not evidence of new implementation or execution.
+
+Test results, run commentary and historical qualification records are maintained in the [central test hub](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md). Read them against their recorded source revisions; source selection and deployment approval are separate decisions.
 
 ## Limitations and deployment decisions
 
@@ -145,3 +144,6 @@ execution authority.
 ## Repository locations
 
 See the [repository rename map and compatibility notes](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/repository-renames.md) for current component URLs. Existing package names, schema identifiers and retained producer identities are unchanged.
+
+<!-- Retained anchors for existing documentation links. -->
+<a id="evidence-and-supported-scope"></a>
