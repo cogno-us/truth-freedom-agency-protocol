@@ -3,7 +3,7 @@
 ──────────────────────────────────────────────────
    __________  _______   ______  __  _______
   / ____/ __ \/ ____/ | / / __ \/ / / / ___/
- / /   / / / / / __/  |/ / / / / / / /\__ \
+ / /   / / / / / __/  |/ / / / / / /\__ \
 / /___/ /_/ / /_/ / /|  / /_/ / /_/ /___/ /
 \____/\____/\____/_/ |_/\____/\____//____/
           TRUTH FREEDOM AGENCY PROTOCOL
@@ -17,21 +17,105 @@
 
 **Truth · Freedom · Agency.**
 
-**Stack group: 06 · Reasoning & Human Oversight.** See the [six-group component map](#cognous-stack-components).
+**Status:** optional reasoning protocol (side group of the [stack map](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/stack-map.md)). Label: merged. In the hub lock as `tfa` with `optional: true`; the lock records no interface for it, and it is not selected for enforcement. A behavioral protocol, not an authority system. <!-- pin-round: lock revision statements in this file are refreshed with the hub lock -->
 
-## Overview
+Identity, unchanged: **Say what is true. Ask for nothing. Protect their next move.**
 
-A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules: Say what is true. Ask for nothing. Protect their next move. Implementation and evaluation guidance explain those rules without making them an authority system.
+## What it is, who it is for, what it does not do
+
+**What it is.** A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules: Say what is true. Ask for nothing. Protect their next move. Implementation and evaluation guidance explain those rules without making them an authority system.
+
+**Who it is for.** Reviewers and builders who want a small vocabulary for interaction failures. An assistant can burden or influence a user through unsupported certainty, unnecessary questioning, validation pressure or premature closure of alternatives; TFA names those failures while allowing questions that are materially necessary. Engineers can inspect the evaluation cases and validator; architecture, security and governance reviewers can examine the boundary and evidence. Evaluate this component for its named responsibility rather than as a complete governance platform.
+
+**What it does not do.** TFA does not authenticate identities, issue or revoke grants, enforce tool permissions or prove an external effect. It does not enforce authorization or substitute for human oversight. See [Limits](#limitations-and-deployment-decisions).
 
 **Implementation status:** public reference work. The [current component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) defines the selected integration; a component merge does not automatically change that selection or approve deployment.
 
-## Purpose and intended users
+## Where it fits
 
-An assistant can burden or influence a user through unsupported certainty, unnecessary questioning, validation pressure or premature closure of alternatives. TFA provides a small review vocabulary for those interaction failures while allowing questions that are materially necessary.
+TFA sits in the "Optional reasoning protocols" side group, beside [Portable Reasoning Protocol (PRP)](https://github.com/cogno-us/portable-reasoning-protocol) and [Research Intelligence Protocol](https://github.com/cogno-us/research-intelligence-protocol). It can be used independently; adopting the wider stack is optional. See [Relationship to PRP and institutional governance](#relationship-to-prp-and-institutional-governance). The [stack map](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/stack-map.md) is the canonical map; the table below is a copy of it.
 
-Engineers can inspect the reference contracts and examples; enterprise architecture, security and governance reviewers can examine the boundary and evidence. Evaluate this component for its named responsibility rather than as a complete governance platform.
+<!-- stack-map-block:start -->
+### Cognous stack components
 
-## Key features
+The Open Control Stack keeps five responsibility groups and two side groups. The groups organize responsibilities. They are not an execution sequence or a requirement to install every component. The canonical map, with one row per repository, is the hub [stack map](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/stack-map.md); names are defined in [naming](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/naming.md) and commands and profiles per repository are in [profiles and tools](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/profiles-and-tools.md). The map uses four labels: merged, selected, known limit and proposed. The [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) defines the selected integration; [release status](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) defines its evidence and limits.
+
+| Group | Components |
+| --- | --- |
+| **01 Knowledge & Provenance** | [Evidence Registry (The Index)](https://github.com/cogno-us/cognous-evidence-registry) · [Evidence Attestation (BitRep)](https://github.com/cogno-us/cognous-evidence-attestation) |
+| **02 Institutional Governance** | [Institutional Governance (Alvorada)](https://github.com/cogno-us/cognous-institutional-governance) |
+| **03 Declaration & Policy Control** | [Action Manifest](https://github.com/cogno-us/cognous-action-manifest) · [Control Plane](https://github.com/cogno-us/cognous-control-plane) |
+| **04 Constrained Execution** | [Execution Runtime](https://github.com/cogno-us/cognous-execution-runtime) |
+| **05 Replay & Evidence** | [Replay Bundle](https://github.com/cogno-us/cognous-replay-bundle) · [Governance Evidence Pack](https://github.com/cogno-us/cognous-governance-evidence-pack) · [ODES](https://github.com/cogno-us/open-decision-evidence-standard) |
+| **Cross-cutting exchange** | [Governed Exchange (GAX/IMX)](https://github.com/cogno-us/cognous-governed-exchange) |
+| **Optional reasoning protocols** (side group) | [Portable Reasoning Protocol (PRP)](https://github.com/cogno-us/portable-reasoning-protocol) · [Research Intelligence Protocol](https://github.com/cogno-us/research-intelligence-protocol) · [TFA Protocol (S43)](https://github.com/cogno-us/truth-freedom-agency-protocol) |
+| **Tooling and qualification** (side group) | [Ergonomics (`cognous-ocs`)](https://github.com/cogno-us/cognous-open-control-stack-ergonomics) · [Verifier](https://github.com/cogno-us/cognous-open-control-stack-verifier) · [Orchestrator](https://github.com/cogno-us/cognous-stack-orchestrator) · [Qualification](https://github.com/cogno-us/cognous-stack-qualification) |
+
+The hub, [cognous-open-control-stack](https://github.com/cogno-us/cognous-open-control-stack), holds the component lock and the canonical documentation. Execution Runtime is the repository formerly named Moltbot Safe; see [naming](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/naming.md). PRP, Research Intelligence Protocol and TFA Protocol are optional behavioral instructions; they do not enforce authorization or substitute for human oversight. A signature, registry entry, message receipt or evidence summary does not grant execution authority.
+
+Last checked against `component-lock.json` at hub commit `dcc9bd7533ef`. <!-- pin-round: refresh this commit with the hub stack map -->
+<!-- stack-map-block:end -->
+
+## Quick start
+
+Prerequisites: Python 3 and a clone of this repository (the validator uses only the standard library; verified with Python 3.13). No model, network or account is needed.
+
+```bash
+git clone https://github.com/cogno-us/truth-freedom-agency-protocol
+cd truth-freedom-agency-protocol
+python scripts/validate_evaluation.py
+```
+
+Run it from the repository root: with no argument the validator reads `evaluation/cases.json` relative to the current directory, and it accepts another path as its one argument (CI passes `evaluation/cases.json`). Expected: exit code 0 and the single line
+
+```text
+OK: 19 cases validated; all statuses are explicit.
+```
+
+It finishes in well under a second. A missing or malformed file prints an `ERROR:` line and exits 1. <!-- pin-round: the case count reflects the repository head at the time of writing -->
+
+**What this does not prove.** The validator checks case structure, required category coverage, unique IDs and allowed status labels. It does not call a model, validate run metadata or raw outputs, or establish that any model follows TFA. All 19 cases are `unexecuted`.
+
+To use the protocol, apply the three rules as prompt guidance or a review rubric. "Ask for nothing" does not prohibit necessary clarification or permission checks. Read [the evaluation protocol](EVALUATION.md) before reporting results.
+
+## What ships
+
+| Item | Kind | Purpose | Status label |
+|---|---|---|---|
+| [EVALUATION.md](EVALUATION.md) | evaluation protocol | Scoring dimensions (Truth, Freedom, Agency; 0 to 2 each), failure conditions, run controls, required run metadata, ablation design, minimal comparison procedure and status values. | merged |
+| [evaluation/cases.json](evaluation/cases.json) | evaluation cases (19) | Seven required behavioral categories with one case each, plus the 12 original public scenarios kept as `legacy_ablation`. All `unexecuted`. | merged |
+| [`scripts/validate_evaluation.py`](scripts/validate_evaluation.py) | command (standard library) | Structural validation of a case file; optional path argument. Verified above. | merged |
+| [.github/workflows/validate-evaluation.yml](.github/workflows/validate-evaluation.yml) | CI | Runs the validator on pull requests that change the README, protocol, cases or validator. | merged |
+| [TFA_Whitepaper.pdf](TFA_Whitepaper.pdf) | historical source (PDF, 4 pages) | The TFA Protocol (S43) paper, dated 2026-03-06. It reports an ablation battery of its own; this repository does not re-run or reproduce it. | merged |
+| [S43_Cryptographic_Protocol.pdf](S43_Cryptographic_Protocol.pdf) | historical source (PDF, 9 pages) | A cryptographic interpretation of S43, dated 2026-03-06. It is a paper, not an implementation in this repository. | merged |
+| [docs/security-cloud-remediation-20261016.md](docs/security-cloud-remediation-20261016.md) | historical note | Record of the 2026-10-16 workflow pin change, retained as written. | merged |
+| [Business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md) | collateral | Nontechnical introduction to this component's role and evidence limits. | merged |
+
+TFA ships no installable package, no commands other than the validator, no profile and no contract draft. The two PDFs have no text version in this repository; the table above describes them only at the level their title pages support.
+
+## Documentation index
+
+Every page in this repository is linked below.
+
+| Page | Read it for |
+|---|---|
+| [EVALUATION.md](EVALUATION.md) | How to evaluate TFA reproducibly, and what a validated case file does not establish. |
+| [evaluation/cases.json](evaluation/cases.json) | The machine-readable cases. |
+| [TFA_Whitepaper.pdf](TFA_Whitepaper.pdf), [S43_Cryptographic_Protocol.pdf](S43_Cryptographic_Protocol.pdf) | Historical sources. |
+| [docs/security-cloud-remediation-20261016.md](docs/security-cloud-remediation-20261016.md) | Historical note on a workflow pin change. |
+| [Business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md) | Nontechnical introduction, not additional runtime features. |
+
+Reading paths: **adopter** this README, then EVALUATION.md. **Reviewer** EVALUATION.md "Interpretation boundaries", then this README's limits. Shared names and labels are in the hub [naming](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/naming.md) page.
+
+## How it works and design notes
+
+### How it works
+
+A reviewer evaluates an assistant response for factual calibration, unnecessary extraction and preservation of user choice. A clarification is appropriate when it resolves decision-critical uncertainty or an authorization boundary. Once sufficient permission and evidence exist, the assistant can proceed without repeatedly seeking reassurance. This behavior does not override institutional or runtime controls.
+
+A valid signature, chain inclusion, message receipt, reasoning instruction or evidence-package digest does not authorize execution. Institutional authority must be supplied and evaluated through the appropriate trusted boundary.
+
+### Key features
 
 | Capability | Implemented or specified responsibility |
 |---|---|
@@ -40,12 +124,6 @@ Engineers can inspect the reference contracts and examples; enterprise architect
 | **Agency** | Keep meaningful alternatives open and act only within permission already granted. |
 | **Proportionate questions** | Ask the minimum needed when accuracy, safety or authorization depends on missing information. |
 | **Evaluation guidance** | Use explicit cases and review criteria rather than treating the three rules as a behavioral guarantee. |
-
-## How it works
-
-A reviewer evaluates an assistant response for factual calibration, unnecessary extraction and preservation of user choice. A clarification is appropriate when it resolves decision-critical uncertainty or an authorization boundary. Once sufficient permission and evidence exist, the assistant can proceed without repeatedly seeking reassurance. This behavior does not override institutional or runtime controls.
-
-A valid signature, chain inclusion, message receipt, reasoning instruction or evidence-package digest does not authorize execution. Institutional authority must be supplied and evaluated through the appropriate trusted boundary.
 
 ## Relationship to PRP and institutional governance
 
@@ -61,15 +139,7 @@ Necessary requests for authorization, decision-critical evidence, or safety-rele
 
 When evaluating TFA alongside PRP or other instructions, record their exact text and revisions. Overlapping truthfulness or agency instructions can remain active in an ablation, so removing a TFA sentence does not remove the underlying capability or obligation. See the [comparison procedure](EVALUATION.md#minimal-comparison-procedure).
 
-## Getting started
-
-Apply the three rules as prompt guidance or a review rubric. “Ask for nothing” does not prohibit necessary clarification or permission checks. Read [the evaluation protocol](EVALUATION.md) before reporting results. The Python standard-library validator below checks case structure and explicit status; it does not call a model.
-
-```bash
-python scripts/validate_evaluation.py
-```
-
-## Scope and compatibility
+## Compatibility and selection
 
 TFA is optional behavioral guidance; static artifact validity does not establish behavioral efficacy. [EVALUATION.md](EVALUATION.md) and the case validator distinguish proposed evaluations from executed observations. Do not infer effectiveness or cryptographic assurance from the protocol name, historical PDFs or a successfully parsed case file.
 
@@ -77,29 +147,21 @@ The three-rule identity is unchanged: **Say what is true. Ask for nothing. Prote
 
 Test results, run commentary and historical qualification records are maintained in the [central test hub](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md). Read them against their recorded source revisions; source selection and deployment approval are separate decisions.
 
+See the [repository rename map and compatibility notes](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/repository-renames.md) for current component URLs. Existing package names, schema identifiers and retained producer identities are unchanged.
+
 ## Limitations and deployment decisions
 
 TFA does not authenticate identities, issue or revoke grants, enforce tool permissions or prove an external effect. Truthfulness, non-coercion and agency preservation require evidence from actual behavior. The hub has not executed model-behavior qualification. Historical PDFs retain their original provenance and are not new cryptographic guarantees.
 
 Review original artifacts and their exact source revisions before extending a claim to a new environment. New dependencies, authority sources, destinations or enforcement mechanisms need their own compatibility and qualification. A passing reference case is not a certification of an enterprise deployment.
 
-## Repository guide
+Known limits, as labelled facts: **known limit** All 19 evaluation cases are `unexecuted`; behavioral efficacy is not established here. **known limit** The hub has not executed model-behavior qualification. **known limit** The two PDFs are historical sources and are not new cryptographic guarantees. Shared stack-level limits are stated in the hub [guarantees and limits](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/guarantees-and-limits.md).
 
-Use these sources for details; their historical checkpoints retain the status and scope of the work they recorded:
+## Contributing, licence, attribution and security
 
-- [EVALUATION.md](EVALUATION.md)
-- [evaluation/cases.json](evaluation/cases.json)
-- [scripts/validate_evaluation.py](scripts/validate_evaluation.py)
-- [TFA_Whitepaper.pdf](TFA_Whitepaper.pdf)
-- [S43_Cryptographic_Protocol.pdf](S43_Cryptographic_Protocol.pdf)
+Propose focused changes through repository issues and pull requests. Keep evidence-linked claims, preserve historical records and separate proposed features from accepted implementation. Run the validator from the quick start before opening a pull request; CI runs it when the README, protocol, cases or validator change.
 
-For a nontechnical introduction, read the [business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md). Both describe this component's role and evidence limits, not additional runtime features.
-
-## Contributing and attribution
-
-Propose focused changes through repository issues and pull requests. Keep evidence-linked claims, preserve historical records and separate proposed features from accepted implementation.
-
-See [LICENSE](LICENSE) and [attribution](NOTICE) for the existing terms and third-party scope. Developed by [Cognous](https://cogno.us); no licensing change is part of this documentation update.
+See [LICENSE](LICENSE) and [attribution](NOTICE) for the existing terms and third-party scope. Developed by [Cognous](https://cogno.us); no licensing change is part of this documentation update. For reporting a concern, see the hub [security reporting and triage](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/security-reporting-and-triage.md) page; the historical [workflow note](docs/security-cloud-remediation-20261016.md) is retained as written.
 
 ---
 
@@ -112,38 +174,6 @@ Selected external sources from the October 2026 research review. These inform ev
 - [John W. Creswell and J. David Creswell. *Research Design: Qualitative, Quantitative, and Mixed Methods Approaches*, fifth edition. SAGE (2018)](https://edge.sagepub.com/creswellrd5e). Research-methods reference for explicit questions, comparison designs and interpretation limits.
 
 See the [research bibliography](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/research-bibliography.md) for review scope and source-verification limits.
-
-## Cognous stack components
-
-The six groups organize component responsibilities. They are not an execution
-sequence or a requirement to install every component. The [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json)
-defines the selected integration; [release status](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md)
-defines its evidence and limits.
-
-| Group | Components |
-| --- | --- |
-| **01 · Knowledge & Provenance** | [The Index (Evidence Registry)](https://github.com/cogno-us/cognous-evidence-registry) · [BitRep (Evidence Attestation)](https://github.com/cogno-us/cognous-evidence-attestation) |
-| **02 · Institutional Governance** | [Alvorada (Institutional Governance)](https://github.com/cogno-us/cognous-institutional-governance) · authority contracts |
-| **03 · Declaration & Policy Control** | [Action Manifest](https://github.com/cogno-us/cognous-action-manifest) · [Control Plane](https://github.com/cogno-us/cognous-control-plane) |
-| **04 · Constrained Execution** | [Execution Runtime (Moltbot Safe)](https://github.com/cogno-us/cognous-execution-runtime) |
-| **05 · Replay & Evidence** | [Replay Bundle](https://github.com/cogno-us/cognous-replay-bundle) · [Governance Evidence Pack](https://github.com/cogno-us/cognous-governance-evidence-pack) · [ODES](https://github.com/cogno-us/open-decision-evidence-standard) |
-| **06 · Reasoning & Human Oversight** | [PRP](https://github.com/cogno-us/portable-reasoning-protocol) · [Research Intelligence](https://github.com/cogno-us/research-intelligence-protocol) · [TFA](https://github.com/cogno-us/truth-freedom-agency-protocol) |
-
-**Cross-cutting exchange:** [Governed Exchange (GAX/IMX)](https://github.com/cogno-us/cognous-governed-exchange) connects
-governed messages, recipient assessment and continuity across the groups. It is
-separate from Alvorada's institutional authority framework.
-
-Execution Runtime and Moltbot Safe name the same repository here. The supported
-Cognous Python execution boundary remains distinct from the retained upstream
-application. PRP, Research Intelligence and TFA are optional behavioral
-instructions; they do not enforce authorization or substitute for human oversight.
-A signature, registry entry, message receipt or evidence summary does not grant
-execution authority.
-
-
-## Repository locations
-
-See the [repository rename map and compatibility notes](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/repository-renames.md) for current component URLs. Existing package names, schema identifiers and retained producer identities are unchanged.
 
 <!-- Retained anchors for existing documentation links. -->
 <a id="evidence-and-supported-scope"></a>
