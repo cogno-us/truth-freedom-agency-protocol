@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules: Say what is true. Ask for nothing. Protect their next move. Implementation and evaluation guidance explain those rules without making them an authority system.
+A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules, which in revision 2 read: Say what is true, and how you know. Ask for nothing. Protect the next move of everyone affected. Implementation and evaluation guidance explain those rules without making them an authority system.
 
 ## Problem
 

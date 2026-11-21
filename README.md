@@ -19,17 +19,50 @@
 
 **Status:** optional reasoning protocol (side group of the [stack map](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/stack-map.md)). Label: merged. In the hub lock as `tfa` with `optional: true`; the lock records no interface for it, and it is not selected for enforcement. A behavioral protocol, not an authority system. <!-- pin-round: lock revision statements in this file are refreshed with the hub lock -->
 
-Identity, unchanged: **Say what is true. Ask for nothing. Protect their next move.**
+Identity, revision 2: **Say what is true, and how you know. Ask for nothing. Protect the next move of everyone affected.** Revision 1 read: Say what is true. Ask for nothing. Protect their next move. See [Protocol text and revisions](#protocol-text-and-revisions).
 
 ## What it is, who it is for, what it does not do
 
-**What it is.** A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules: Say what is true. Ask for nothing. Protect their next move. Implementation and evaluation guidance explain those rules without making them an authority system.
+**What it is.** A lightweight optional behavioral protocol for AI interaction. Its identity remains three rules, which in revision 2 read: Say what is true, and how you know. Ask for nothing. Protect the next move of everyone affected. Implementation and evaluation guidance explain those rules without making them an authority system.
 
 **Who it is for.** Reviewers and builders who want a small vocabulary for interaction failures. An assistant can burden or influence a user through unsupported certainty, unnecessary questioning, validation pressure or premature closure of alternatives; TFA names those failures while allowing questions that are materially necessary. Engineers can inspect the evaluation cases and validator; architecture, security and governance reviewers can examine the boundary and evidence. Evaluate this component for its named responsibility rather than as a complete governance platform.
 
 **What it does not do.** TFA does not authenticate identities, issue or revoke grants, enforce tool permissions or prove an external effect. It does not enforce authorization or substitute for human oversight. See [Limits](#limitations-and-deployment-decisions).
 
 **Implementation status:** public reference work. The [current component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) defines the selected integration; a component merge does not automatically change that selection or approve deployment.
+
+## Protocol text and revisions
+
+**Revision 2 (2026-11-21).** The protocol has three rules.
+
+1. Say what is true, and how you know.
+2. Ask for nothing.
+3. Protect the next move of everyone affected.
+
+Two rules sit beside the three. They are not part of the three-rule identity.
+
+- **Correction rule.** If what you said proves false, withdraw it as visibly as you said it.
+- **Companion rule for action.** Act only within what you were granted.
+
+**The test.** Three questions a reviewer can put to any response:
+
+- Is it true, and can you show the source?
+- Does it demand anything?
+- Is everyone affected at least as free as before?
+
+**Scope of rule 3.** "Everyone affected" means the recipient and anyone the response is about or acts upon. A person who is not party to an exchange can still be affected by it.
+
+**What changed from revision 1.**
+
+| Rule | Revision 1 | Revision 2 | Reason |
+| --- | --- | --- | --- |
+| 1 | Say what is true. | Say what is true, and how you know. | A claim with no stated basis cannot be checked. The addition asks for the source of a claim and the confidence it deserves. |
+| 2 | Ask for nothing. | Ask for nothing. | Unchanged. |
+| 3 | Protect their next move. | Protect the next move of everyone affected. | Revision 1 addressed the other party to the exchange. An exchange can also narrow the options of someone it is about who is not present. |
+
+**What did not change.** The protocol still has three rules, and rule 2 is untouched. "Ask for nothing" still allows materially necessary clarification and authorization checks. The companion rule restates the limit already given under Agency in [Key features](#key-features). It grants no permission and does not make TFA an authority system.
+
+**Evidence for revision 2.** **known limit** The 19 committed evaluation cases were written against revision 1. None targets the revision 2 additions: the basis of a claim, people outside the exchange, or correction. **known limit** No case has been executed under either revision. The historical PDFs state revision 1 and are retained as written. [EVALUATION.md](EVALUATION.md) freezes a separate condition text for each revision; results under different revisions are not to be pooled.
 
 ## Where it fits
 
@@ -82,7 +115,7 @@ To use the protocol, apply the three rules as prompt guidance or a review rubric
 
 | Item | Kind | Purpose | Status label |
 |---|---|---|---|
-| [EVALUATION.md](EVALUATION.md) | evaluation protocol | Scoring dimensions (Truth, Freedom, Agency; 0 to 2 each), failure conditions, run controls, required run metadata, ablation design, minimal comparison procedure and status values. | merged |
+| [EVALUATION.md](EVALUATION.md) | evaluation protocol | Scoring dimensions (Truth, Freedom, Agency; 0 to 2 each), failure conditions, run controls, required run metadata, ablation design, minimal comparison procedure with condition texts for revisions 1 and 2, and status values. | merged |
 | [evaluation/cases.json](evaluation/cases.json) | evaluation cases (19) | Seven required behavioral categories with one case each, plus the 12 original public scenarios kept as `legacy_ablation`. All `unexecuted`. | merged |
 | [`scripts/validate_evaluation.py`](scripts/validate_evaluation.py) | command (standard library) | Structural validation of a case file; optional path argument. Verified above. | merged |
 | [.github/workflows/validate-evaluation.yml](.github/workflows/validate-evaluation.yml) | CI | Runs the validator on pull requests that change the README, protocol, cases or validator. | merged |
@@ -119,9 +152,10 @@ A valid signature, chain inclusion, message receipt, reasoning instruction or ev
 
 | Capability | Implemented or specified responsibility |
 |---|---|
-| **Truth** | Calibrate claims to evidence and avoid invented facts, sources, capabilities or authority. |
+| **Truth** | Calibrate claims to evidence, state the basis for material claims, and avoid invented facts, sources, capabilities or authority. |
 | **Freedom** | Avoid extracting unnecessary information, reassurance, labor or commitment as the price of help. |
-| **Agency** | Keep meaningful alternatives open and act only within permission already granted. |
+| **Agency** | Keep meaningful alternatives open for the recipient and for anyone the response is about or acts upon, and act only within permission already granted. |
+| **Correction** | Withdraw a statement that proves false as visibly as it was made. |
 | **Proportionate questions** | Ask the minimum needed when accuracy, safety or authorization depends on missing information. |
 | **Evaluation guidance** | Use explicit cases and review criteria rather than treating the three rules as a behavioral guarantee. |
 
@@ -143,7 +177,7 @@ When evaluating TFA alongside PRP or other instructions, record their exact text
 
 TFA is optional behavioral guidance; static artifact validity does not establish behavioral efficacy. [EVALUATION.md](EVALUATION.md) and the case validator distinguish proposed evaluations from executed observations. Do not infer effectiveness or cryptographic assurance from the protocol name, historical PDFs or a successfully parsed case file.
 
-The three-rule identity is unchanged: **Say what is true. Ask for nothing. Protect their next move.** The historical [TFA Whitepaper](TFA_Whitepaper.pdf) and [S43 Cryptographic Protocol](S43_Cryptographic_Protocol.pdf) remain sources, not evidence of new implementation or execution.
+The protocol keeps three rules. Revision 2 reads: **Say what is true, and how you know. Ask for nothing. Protect the next move of everyone affected.** Revision 1 read: Say what is true. Ask for nothing. Protect their next move. The historical [TFA Whitepaper](TFA_Whitepaper.pdf) and [S43 Cryptographic Protocol](S43_Cryptographic_Protocol.pdf) state revision 1. They remain sources, not evidence of new implementation or execution.
 
 Test results, run commentary and historical qualification records are maintained in the [central test hub](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md). Read them against their recorded source revisions; source selection and deployment approval are separate decisions.
 
@@ -155,7 +189,7 @@ TFA does not authenticate identities, issue or revoke grants, enforce tool permi
 
 Review original artifacts and their exact source revisions before extending a claim to a new environment. New dependencies, authority sources, destinations or enforcement mechanisms need their own compatibility and qualification. A passing reference case is not a certification of an enterprise deployment.
 
-Known limits, as labelled facts: **known limit** All 19 evaluation cases are `unexecuted`; behavioral efficacy is not established here. **known limit** The hub has not executed model-behavior qualification. **known limit** The two PDFs are historical sources and are not new cryptographic guarantees. Shared stack-level limits are stated in the hub [guarantees and limits](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/guarantees-and-limits.md).
+Known limits, as labelled facts: **known limit** All 19 evaluation cases are `unexecuted`; behavioral efficacy is not established here. **known limit** No committed case targets the revision 2 additions (the basis of a claim, people outside the exchange, correction). **known limit** The hub has not executed model-behavior qualification. **known limit** The two PDFs are historical sources and are not new cryptographic guarantees. Shared stack-level limits are stated in the hub [guarantees and limits](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/guarantees-and-limits.md).
 
 ## Contributing, licence, attribution and security
 
