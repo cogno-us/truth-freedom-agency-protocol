@@ -64,6 +64,8 @@ Two rules sit beside the three. They are not part of the three-rule identity.
 
 **Evidence for revision 2.** **known limit** The 19 committed evaluation cases were written against revision 1. None targets the revision 2 additions: the basis of a claim, people outside the exchange, or correction. **known limit** No case has been executed under either revision. The historical PDFs state revision 1 and are retained as written. [EVALUATION.md](EVALUATION.md) freezes a separate condition text for each revision; results under different revisions are not to be pooled.
 
+**Prior work.** Earlier statements of each rule, and analogous frameworks in other fields, are listed in [Antecedents and analogs](docs/antecedents.md). That page records similarity. It claims no derivation.
+
 ## Where it fits
 
 TFA sits in the "Optional reasoning protocols" side group, beside [Portable Reasoning Protocol (PRP)](https://github.com/cogno-us/portable-reasoning-protocol) and [Research Intelligence Protocol](https://github.com/cogno-us/research-intelligence-protocol). It can be used independently; adopting the wider stack is optional. See [Relationship to PRP and institutional governance](#relationship-to-prp-and-institutional-governance). The [stack map](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/stack-map.md) is the canonical map; the table below is a copy of it.
@@ -122,6 +124,7 @@ To use the protocol, apply the three rules as prompt guidance or a review rubric
 | [TFA_Whitepaper.pdf](TFA_Whitepaper.pdf) | historical source (PDF, 4 pages) | The TFA Protocol (S43) paper, dated 2026-03-06. It reports an ablation battery of its own; this repository does not re-run or reproduce it. | merged |
 | [S43_Cryptographic_Protocol.pdf](S43_Cryptographic_Protocol.pdf) | historical source (PDF, 9 pages) | A cryptographic interpretation of S43, dated 2026-03-06. It is a paper, not an implementation in this repository. | merged |
 | [docs/security-cloud-remediation-20261016.md](docs/security-cloud-remediation-20261016.md) | historical note | Record of the 2026-10-16 workflow pin change, retained as written. | merged |
+| [docs/antecedents.md](docs/antecedents.md) | reference page | Antecedents and analogs of the three rules in earlier work, with a reference list that states how each source was checked. It records similarity and claims neither derivation nor efficacy. | merged |
 | [Business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md) | collateral | Nontechnical introduction to this component's role and evidence limits. | merged |
 
 TFA ships no installable package, no commands other than the validator, no profile and no contract draft. The two PDFs have no text version in this repository; the table above describes them only at the level their title pages support.
@@ -135,6 +138,7 @@ Every page in this repository is linked below.
 | [EVALUATION.md](EVALUATION.md) | How to evaluate TFA reproducibly, and what a validated case file does not establish. |
 | [evaluation/cases.json](evaluation/cases.json) | The machine-readable cases. |
 | [TFA_Whitepaper.pdf](TFA_Whitepaper.pdf), [S43_Cryptographic_Protocol.pdf](S43_Cryptographic_Protocol.pdf) | Historical sources. |
+| [docs/antecedents.md](docs/antecedents.md) | Earlier statements of each rule and analogous frameworks in other fields, with references. |
 | [docs/security-cloud-remediation-20261016.md](docs/security-cloud-remediation-20261016.md) | Historical note on a workflow pin change. |
 | [Business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md) | Nontechnical introduction, not additional runtime features. |
 
@@ -207,7 +211,7 @@ Selected external sources from the October 2026 research review. These inform ev
 - [OECD. *Agentic AI in organisations: Early insights from practitioner interviews*. OECD Artificial Intelligence Papers, No. 65 (2026)](https://doi.org/10.1787/1257a26f-en). Qualitative practitioner research on bounded autonomy, oversight and organizational deployment.
 - [John W. Creswell and J. David Creswell. *Research Design: Qualitative, Quantitative, and Mixed Methods Approaches*, fifth edition. SAGE (2018)](https://edge.sagepub.com/creswellrd5e). Research-methods reference for explicit questions, comparison designs and interpretation limits.
 
-See the [research bibliography](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/research-bibliography.md) for review scope and source-verification limits.
+See the [research bibliography](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/research-bibliography.md) for review scope and source-verification limits. Prior work on the three rules themselves is listed separately in [Antecedents and analogs](docs/antecedents.md), with its own reference list.
 
 <!-- Retained anchors for existing documentation links. -->
 <a id="evidence-and-supported-scope"></a>
